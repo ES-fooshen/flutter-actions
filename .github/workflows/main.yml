@@ -58,8 +58,7 @@ jobs:
         packageName: co.easystore.pos
         releaseFiles: build/app/outputs/bundle/release/app-release.aab
         track: internalsharing
-        releaseName: v1.0.0
-        status: draft
+        releaseName: v1.0.1
   flutter-actions-ios:
     name: flutter related actions for ios
     runs-on: macos-latest
