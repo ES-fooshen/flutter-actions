@@ -56,7 +56,7 @@ jobs:
       with:
         serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
         packageName: co.easystore.pos
-        releaseFiles: app/build/outputs/bundle/release/app-release.aab
+        releaseFiles: build/app/outputs/bundle/release/app-release.aab
         track: production
         releaseName: v1.0.0
         status: draft
