@@ -52,12 +52,13 @@ jobs:
     - run: flutter pub get
     - run: flutter build apk
     - run: flutter build appbundle
-    - uses: r0adkll/upload-google-play@v1
+    - name: Upload to google play
+    - uses: r0adkll/upload-google-play@v1.0.17
       with:
         serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
         packageName: co.easystore.pos
         releaseFiles: build/app/outputs/bundle/release/app-release.aab
-        track: internalsharing
+        track: internal
         releaseName: v1.0.1
   flutter-actions-ios:
     name: flutter related actions for ios
