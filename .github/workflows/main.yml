@@ -64,7 +64,7 @@ jobs:
       with:
         serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
         packageName: co.easystore.pos
-        releaseFiles: build/app/outputs/bundle/release/app-release.aab
+        releaseFiles: ${{steps.sign_app.outputs.signedReleaseFile}}
         track: internal
         releaseName: v1.0.1
   flutter-actions-ios:
