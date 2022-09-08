@@ -53,21 +53,16 @@ android {
         versionName flutterVersionName
     }
 
-    def buildType = ""
     buildTypes {
         release {
-            buildType = "release"
-        }
-        debug {
-            buildType = "debug"
-        }
-    }
+            signingConfig null
 
-    applicationVariants.all { variant ->
-        variant.outputs.all { output ->
-            def type = variant.variantData.variantConfiguration.buildType.name
-            output.outputFileName = "app-${type}.apk"
-        }
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    output.outputFileName = "app-release.apk"
+                }
+            }
+}
     }
 }
 
