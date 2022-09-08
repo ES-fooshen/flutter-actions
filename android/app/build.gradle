@@ -53,6 +53,7 @@ android {
         versionName flutterVersionName
     }
 
+    def buildType = ""
     buildTypes {
         release {
             buildType = "release"
