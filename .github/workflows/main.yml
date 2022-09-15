@@ -85,5 +85,6 @@ jobs:
         project-path: ios/Runner.xcodeproj
         p12-base64: ${{ secrets.P12_BASE64 }}
         mobileprovision-base64: ${{ secrets.MOBILEPROVISION_BASE64 }}
-        code-signing-identity: 'iOS Distribution'
-        team-id: 'Y6F6QCVDBY'
+        code-signing-identity: iOS Distribution
+        team-id: Y6F6QCVDBY
+        export-method: ad-hoc
