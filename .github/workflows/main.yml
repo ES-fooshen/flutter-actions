@@ -102,7 +102,7 @@ jobs:
         channel: 'stable'
     - run: flutter --version
     - run: flutter pub get
-    - run: flutter build ios
+    - run: flutter build ios --release --no-codesign
     - uses: yukiarrr/ios-build-action@v1.5.0
       with:
         project-path: ios/Runner.xcodeproj
