@@ -134,7 +134,7 @@ jobs:
         cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
     - name: Build IPA
       run: |
-        xcodebuild -workspace src/ios/Runner.xcworkspace \
+        xcodebuild -workspace ios/Runner.xcworkspace \
           -scheme Runner \
           -configuration Release \
           -sdk iphoneos \
@@ -146,6 +146,6 @@ jobs:
       run: |
         xcodebuild -exportArchive \
           -archivePath $(PWD)/build/archive/runner.xcarchive \
-          -exportOptionsPlist src/ios/exportOptions.plist \
+          -exportOptionsPlist ios/exportOptions.plist \
           -exportPath $(PWD)/build/ipa \
    
