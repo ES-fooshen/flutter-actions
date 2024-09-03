@@ -135,7 +135,6 @@ jobs:
     - name: Build IPA
       run: |
         xcodebuild -workspace src/ios/Runner.xcworkspace \
-          -scheme Runner \
           -configuration Release \
           -sdk iphoneos \
           -archivePath $(PWD)/build/archive \
