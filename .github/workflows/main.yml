@@ -138,7 +138,7 @@ jobs:
           -scheme Runner \
           -configuration Release \
           -sdk iphoneos \
-          -archivePath $(PWD)/build/archive/runner.xarchive \
+          -archivePath $(PWD)/build/archive/runner.xcarchive \
           build \
           archive \
           -allowProvisioningUpdates
@@ -148,4 +148,3 @@ jobs:
           -archivePath $(PWD)/build/archive/runner.xcarchive \
           -exportOptionsPlist ios/exportOptions.plist \
           -exportPath $(PWD)/build/ipa \
-   
