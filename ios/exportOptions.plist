@@ -15,7 +15,7 @@
 	<key>thinning</key>
 	<string>&lt;none&gt;</string>
    <key>signingCertificate</key>
-   <string>EasyStore Commerce Sdn Bhd</string>
+   <string>iPhone Distribution: EasyStore Commerce Sdn Bhd</string>
    <key>provisioningProfiles</key>
    <dict>
       <key>co.easystore.pos</key>
