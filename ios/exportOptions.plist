@@ -5,14 +5,21 @@
 	<key>compileBitcode</key>
 	<false/>
 	<key>method</key>
-	<string>app-store</string>
+	<string>app-store-connect</string>
 	<key>signingStyle</key>
-	<string>automatic</string>
+	<string>manual</string>
 	<key>stripSwiftSymbols</key>
 	<true/>
 	<key>teamID</key>
 	<string>Y6F6QCVDBY</string>
 	<key>thinning</key>
 	<string>&lt;none&gt;</string>
+   <key>signingCertificate</key>
+   <string>EasyStore Commerce Sdn Bhd</string>
+   <key>provisioningProfiles</key>
+   <dict>
+      <key>co.easystore.pos</key>
+      <string>c0f26328-6626-480b-b906-045a648cd666</string>
+   </dict>
 </dict>
 </plist>
