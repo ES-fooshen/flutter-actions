@@ -135,13 +135,17 @@ jobs:
     - name: Build IPA
       run: |
         xcodebuild -workspace src/ios/Runner.xcworkspace \
+          -scheme Runner \
           -configuration Release \
           -sdk iphoneos \
           -archivePath $(PWD)/build/archive \
           build \
           archive \
-          -exportArchive \
+          -allowProvisioningUpdates
+    - name: Export IPA
+      run: |
+        xcodebuild -exportArchive \
+          -archivePath $(PWD)/build/archive/runner.xcarchive \
           -exportOptionsPlist src/ios/exportOptions.plist \
           -exportPath $(PWD)/build/ipa \
-          -allowProvisioningUpdates
    
