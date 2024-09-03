@@ -133,16 +133,16 @@ jobs:
         mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
         cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
     - name: Build IPA
-        run: |
-          xcodebuild -workspace src/ios/Runner.xcworkspace \
-            -scheme Runner \
-            -configuration Release \
-            -sdk iphoneos \
-            -archivePath $(PWD)/build/archive \
-            build \
-            archive \
-            -exportArchive \
-            -exportOptionsPlist src/ios/exportOptions.plist \
-            -exportPath $(PWD)/build/ipa \
-            -allowProvisioningUpdates
+      run: |
+        xcodebuild -workspace src/ios/Runner.xcworkspace \
+          -scheme Runner \
+          -configuration Release \
+          -sdk iphoneos \
+          -archivePath $(PWD)/build/archive \
+          build \
+          archive \
+          -exportArchive \
+          -exportOptionsPlist src/ios/exportOptions.plist \
+          -exportPath $(PWD)/build/ipa \
+          -allowProvisioningUpdates
    
