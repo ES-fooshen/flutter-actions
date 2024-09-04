@@ -21,5 +21,7 @@
       <key>co.easystore.pos</key>
       <string>c0f26328-6626-480b-b906-045a648cd666</string>
    </dict>
+   <key>destination</key>
+   <string>upload</string>
 </dict>
 </plist>
