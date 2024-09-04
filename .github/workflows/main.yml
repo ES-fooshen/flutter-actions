@@ -136,13 +136,13 @@ jobs:
         cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
     
     - name: Set versions
-        run: |
-          version=$(grep '^version:' pubspec.yaml | awk -F"[:+]" '{print $2}' | xargs)
-          build_number=$(grep '^version:' pubspec.yaml | awk -F"+" '{print $2}')
-          echo "Version: $version"
-          echo "Build number: $build_number"
-          /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $build_number" ios/Runner/Info.plist
-          /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $version" ios/Runner/Info.plist
+      run: |
+        version=$(grep '^version:' pubspec.yaml | awk -F"[:+]" '{print $2}' | xargs)
+        build_number=$(grep '^version:' pubspec.yaml | awk -F"+" '{print $2}')
+        echo "Version: $version"
+        echo "Build number: $build_number"
+        /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $build_number" ios/Runner/Info.plist
+        /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $version" ios/Runner/Info.plist
     
     - name: Build IPA
       run: |
