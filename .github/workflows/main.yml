@@ -166,7 +166,7 @@ jobs:
           -exportPath $(PWD)/build/ipa \
     - name: Publish to testflight
       run: |
-        xcrun altool --upload-package $(PWD)/build/ipa --type ios --asc-public-id c9c4ba26-bb36-4207-ba23-c37abf3615b9 --apple-id 1499032417 --bundle-id co.easystore.pos --bundle-short-version-string ${{ env.version }} --bundle-version ${{ env.build_number }} -u ${{ secrets.APP_SPECIFIC_USERNAME }} -p ${{ secrets.APP_SPECIFIC_PASSWORD }}
+        xcrun altool --upload-package $(PWD)/build/ipa/Runner.ipa --type ios --asc-public-id c9c4ba26-bb36-4207-ba23-c37abf3615b9 --apple-id 1499032417 --bundle-id co.easystore.pos --bundle-short-version-string ${{ env.version }} --bundle-version ${{ env.build_number }} -u ${{ secrets.APP_SPECIFIC_USERNAME }} -p ${{ secrets.APP_SPECIFIC_PASSWORD }}
     
 
     
