@@ -155,6 +155,7 @@ jobs:
     name: test build number
     runs-on: macos-latest
     steps:
+    - uses: actions/checkout@v4
     - run: |
        version=$(grep '^version:' pubspec.yaml | awk -F"[:+]" '{print $2}' | xargs)
        build_number=$(grep '^version:' pubspec.yaml | awk -F"+" '{print $2}')
