@@ -70,9 +70,7 @@ jobs:
     #     file-extension: "aab"
     #     file-path: ${{steps.sign_app.outputs.signedReleaseFile}}
     #     submit: true
-    - run: cd android
     - uses: r0adkll/upload-google-play@v1.1.3
-      
       with:
         serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
         packageName: co.easystore.pos
@@ -80,7 +78,7 @@ jobs:
         track: production
         releaseName: v3.3.30
         changesNotSentForReview: true
-        whatsNewDirectory: distribution/whatsnew
+        whatsNewDirectory: android/distribution/whatsnew
   
   
   # flutter-actions-ios:
