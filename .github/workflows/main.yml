@@ -236,7 +236,7 @@ jobs:
     - name: Publish to testflight
       run: |
         cd ios
-        fastlane release ios
+        fastlane ios release
       env:
         FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.APP_SPECIFIC_PASSWORD }}
     
