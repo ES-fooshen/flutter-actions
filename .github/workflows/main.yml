@@ -234,7 +234,9 @@ jobs:
         echo "Contents of $(PWD)/build/ipa/:"
         ls -l $(PWD)/build/ipa/
     - name: Publish to testflight
-      run: fastlane release ios
+      run: |
+        cd ios
+        fastlane release ios
       env:
         FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.APP_SPECIFIC_PASSWORD }}
     
