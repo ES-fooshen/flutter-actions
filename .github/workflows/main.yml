@@ -158,7 +158,7 @@ jobs:
   #     run: |
   #       xcrun altool --upload-package build/ipa/flutter_default.ipa --type ios --asc-public-id c9c4ba26-bb36-4207-ba23-c37abf3615b9 --apple-id 1499032417 --bundle-id co.easystore.pos --bundle-short-version-string ${{ env.version }} --bundle-version ${{ env.build_number }} -u ${{ secrets.APP_SPECIFIC_USERNAME }} -p ${{ secrets.APP_SPECIFIC_PASSWORD }}
 
-    flutter-actions-ios:
+  flutter-actions-ios:
     name: flutter related actions for ios
     runs-on: macos-latest
     steps:
