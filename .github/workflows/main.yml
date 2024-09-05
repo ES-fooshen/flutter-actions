@@ -76,7 +76,6 @@ jobs:
         packageName: co.easystore.pos
         releaseFiles: ${{steps.sign_app.outputs.signedReleaseFile}}
         track: production
-        releaseName: v3.3.30
         changesNotSentForReview: true
         whatsNewDirectory: android/distribution/whatsnew
   
