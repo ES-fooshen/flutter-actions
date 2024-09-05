@@ -239,6 +239,7 @@ jobs:
         fastlane ios release
       env:
         FASTLANE_USER: ${{ secrets.APP_SPECIFIC_USERNAME }}
+        FASTLANE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
         FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.APP_SPECIFIC_PASSWORD }}
         
     
