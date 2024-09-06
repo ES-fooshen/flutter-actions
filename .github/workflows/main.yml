@@ -39,30 +39,58 @@ jobs:
     name: flutter related actions for android
     runs-on: ubuntu-latest
     steps:
-    # Use the setup-shorebird action to configure Shorebird
-    - name: 🐦 Setup Shorebird
-      uses: shorebirdtech/setup-shorebird@v1
     - uses: actions/checkout@v4
     - uses: actions/setup-java@v4
       with:
         distribution: 'zulu'
         java-version: '11'
+    - name: Set versions
+      run: |
+        version=$(grep '^version:' pubspec.yaml | awk -F"[:+]" '{print $2}' | xargs)
+        build_number=$(grep '^version:' pubspec.yaml | awk -F"+" '{print $2}')
+        echo "Version: $version"
+        echo "Build number: $build_number"
+
+        echo "version=$version" >> $GITHUB_ENV
+        echo "build_number=$build_number" >> $GITHUB_ENV
+        
     - uses: subosito/flutter-action@v2
       with:
         flutter-version: '3.22.3'
         channel: 'stable'
     - run: flutter --version
     - run: flutter pub get
-    # - run: flutter build appbundle
-    # - uses: r0adkll/sign-android-release@v1
-    #   name: Sign app AAB
-    #   # ID used to access action output
-    #   id: sign_app
-    #   with:
-    #     releaseDirectory: build/app/outputs/bundle/release
-    #     signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-    #     alias: upload
-    #     keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+    - run: flutter build appbundle
+    - uses: r0adkll/sign-android-release@v1
+      name: Sign app AAB
+      # ID used to access action output
+      id: sign_app
+      with:
+        releaseDirectory: build/app/outputs/bundle/release
+        signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+        alias: upload
+        keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+    - uses: actions/upload-artifact@v4
+      with:
+        # Name of the artifact to upload.
+        # Optional. Default is 'artifact'
+        name: ${{ env.version }}
+
+        # A file, directory or wildcard pattern that describes what to upload
+        # Required.
+        path: ${{steps.sign_app.outputs.signedReleaseFile}}
+
+        # Duration after which artifact will expire in days. 0 means using default retention.
+        # Minimum 1 day.
+        # Maximum 90 days unless changed from the repository settings page.
+        # Optional. Defaults to repository settings.
+        retention-days: 1
+
+        # If true, an artifact with a matching name will be deleted before a new one is uploaded.
+        # If false, the action will fail if an artifact for the given name already exists.
+        # Does not fail if the artifact does not exist.
+        # Optional. Default is 'false'
+        overwrite: true
 
 
     # - uses: muhamedzeema/appgallery-deply-action@main
