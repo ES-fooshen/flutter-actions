@@ -42,7 +42,6 @@ jobs:
     # Use the setup-shorebird action to configure Shorebird
     - name: 🐦 Setup Shorebird
       uses: shorebirdtech/setup-shorebird@v1
-    steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-java@v4
       with:
