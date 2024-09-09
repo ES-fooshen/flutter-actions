@@ -56,7 +56,7 @@ jobs:
 
     - name: change env
       run: |
-        "s/title: 'Flutter Demo'/title: 'Flutter Demo2'/g" lib/main.dart
+        sed -i "s/title: 'Flutter Demo'/title: 'Flutter Demo2'/g" lib/main.dart
         
     - uses: subosito/flutter-action@v2
       with:
