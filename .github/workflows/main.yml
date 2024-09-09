@@ -65,6 +65,9 @@ jobs:
     - run: flutter --version
     - run: flutter pub get
     - run: flutter build apk
+    - name: List IPA Directory Contents
+      run: |
+        ls -l build/app/outputs
     - uses: r0adkll/sign-android-release@v1
       name: Sign app AAB
       # ID used to access action output
@@ -74,9 +77,7 @@ jobs:
         signingKeyBase64: ${{ secrets.SIGNING_KEY }}
         alias: upload
         keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-    - name: List IPA Directory Contents
-      run: |
-        ls -l build/app/outputs
+    
     - uses: actions/upload-artifact@v4
       with:
         # Name of the artifact to upload.
