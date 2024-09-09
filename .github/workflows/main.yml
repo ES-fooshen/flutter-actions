@@ -68,15 +68,15 @@ jobs:
     - name: List IPA Directory Contents
       run: |
         ls -l build/app/outputs/flutter-apk
-    # - uses: r0adkll/sign-android-release@v1
-    #   name: Sign app AAB
-    #   # ID used to access action output
-    #   id: sign_app
-    #   with:
-    #     releaseDirectory: build/app/outputs/bundle/release
-    #     signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-    #     alias: upload
-    #     keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+    - uses: r0adkll/sign-android-release@v1
+      name: Sign app AAB
+      # ID used to access action output
+      id: sign_app
+      with:
+        releaseDirectory: build/app/outputs/flutter-apk
+        signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+        alias: upload
+        keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
     
     - uses: actions/upload-artifact@v4
       with:
