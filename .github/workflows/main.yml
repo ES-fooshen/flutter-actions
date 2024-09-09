@@ -64,19 +64,19 @@ jobs:
         channel: 'stable'
     - run: flutter --version
     - run: flutter pub get
-    - run: flutter build apk
+    - run: flutter build apk --release
     - name: List IPA Directory Contents
       run: |
-        ls -l build/app/outputs
-    - uses: r0adkll/sign-android-release@v1
-      name: Sign app AAB
-      # ID used to access action output
-      id: sign_app
-      with:
-        releaseDirectory: build/app/outputs/bundle/release
-        signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-        alias: upload
-        keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+        ls -l build/app/outputs/flutter-apk
+    # - uses: r0adkll/sign-android-release@v1
+    #   name: Sign app AAB
+    #   # ID used to access action output
+    #   id: sign_app
+    #   with:
+    #     releaseDirectory: build/app/outputs/bundle/release
+    #     signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+    #     alias: upload
+    #     keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
     
     - uses: actions/upload-artifact@v4
       with:
@@ -86,7 +86,7 @@ jobs:
 
         # A file, directory or wildcard pattern that describes what to upload
         # Required.
-        path: build/app/outputs/bundle/release
+        path: build/app/outputs/flutter-apk
 
         # Duration after which artifact will expire in days. 0 means using default retention.
         # Minimum 1 day.
