@@ -53,6 +53,10 @@ jobs:
 
         echo "version=$version" >> $GITHUB_ENV
         echo "build_number=$build_number" >> $GITHUB_ENV
+
+    - name: change env
+      run: |
+        "s/title: 'Flutter Demo'/title: 'Flutter Demo2'/g" lib/main.dart
         
     - uses: subosito/flutter-action@v2
       with:
