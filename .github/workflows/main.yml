@@ -56,7 +56,7 @@ jobs:
 
     - name: change env
       run: |
-        sed -i "s/MyHomePage(title: 'Flutter Demo Home Page ')/MyHomePage(title: 'Flutter Demo Home Page 2')/g" lib/main.dart
+        sed -i "s/String displayText = 'Hello World';/String displayText = 'CI Hello World';/" lib/main.dart
         
     - uses: subosito/flutter-action@v2
       with:
