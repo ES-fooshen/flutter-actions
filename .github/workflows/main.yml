@@ -123,7 +123,7 @@ jobs:
   
   flutter-actions-ios:
     name: flutter related actions for ios
-    runs-on: macos-15-arm64
+    runs-on: macos-15
     steps:
     - name: Select Xcode 16
       run: sudo xcode-select -s /Applications/Xcode_16.2.app
