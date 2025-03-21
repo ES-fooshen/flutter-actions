@@ -30,6 +30,7 @@ jobs:
           "universe_domain": "googleapis.com"
         }
         '
+        echo "TEST_JSON=$TEST_JSON" >> $GITHUB_ENV
     
     - name: Test get data
       run: |
