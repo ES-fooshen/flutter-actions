@@ -23,14 +23,13 @@ jobs:
         java-version: '17'
 
     - name: Set Multi-line Variable
-  run: |
-    cat <<EOF >> $GITHUB_ENV
-    TEST_JSON={
-      "type": "service_account",
-      "universe_domain": "googleapis.com",
-      "key": "a\nb\nc\n"
-    }
-  EOF
+      run: |
+        cat <<EOF >> $GITHUB_ENV
+        TEST_JSON={
+          "type": "service_account",
+          "universe_domain": "googleapis.com",
+          "key": "a\nb\nc\n"
+        }EOF
 
     - name: Test get data
       run: |
