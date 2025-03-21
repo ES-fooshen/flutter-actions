@@ -30,7 +30,7 @@ jobs:
       "universe_domain": "googleapis.com",
       "key": "a\nb\nc\n"
     }
-EOF
+  EOF
 
     - name: Test get data
       run: |
