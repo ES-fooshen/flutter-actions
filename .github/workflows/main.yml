@@ -24,15 +24,13 @@ jobs:
 
     - name: Fetch App Info
       run: |
-        cat <<EOF >> $GITHUB_ENV
-        TEST_JSON<<EOF
-        {
-          "type": "service_account",
-          "universe_domain": "googleapis.com",
-          "key": "a\nb\nc\n"
-        }
-        EOF
-        EOF
+    cat <<EOF >> $GITHUB_ENV
+    TEST_JSON={
+      "type": "service_account",
+      "universe_domain": "googleapis.com",
+      "key": "a\nb\nc\n"
+    }
+    EOF
 
     - name: Test get data
       run: |
