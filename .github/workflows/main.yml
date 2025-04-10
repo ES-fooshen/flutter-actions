@@ -25,9 +25,9 @@ jobs:
         SECRET_FILE: "op://Unimportant Test Vault/upload-keystore"
     
     - name: Use the downloaded certificate
-        run: |
-          echo "Cert file is at: $SECRET_FILE"
-          cat "$SECRET_FILE" | head -n 5  # Just printing first few lines for testing
+      run: |
+        echo "Cert file is at: $SECRET_FILE"
+        cat "$SECRET_FILE" | head -n 5  # Just printing first few lines for testing
     
 
 
