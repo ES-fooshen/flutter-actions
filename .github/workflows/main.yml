@@ -27,13 +27,13 @@ jobs:
     
     - name: Write secret string to file
       run: |
-        echo "$SECRET_STRING" > secret_debug_output.txt
+        echo "$SECRET_STRING" > secret_debug_output.json
 
     - name: Upload secret file as artifact
       uses: actions/upload-artifact@v4
       with:
         name: secret-debug-output
-        path: secret_debug_output.txt
+        path: secret_debug_output.json
         retention-days: 1
         overwrite: true
     
