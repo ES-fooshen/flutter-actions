@@ -1,17 +1,14 @@
-name: Master Android GA Runner
+name: Android Deploy All Brand App
 
 on:
   workflow_dispatch:
 
 jobs:
-  find-workflows:
+  setup-brand-app-deployment-workflows:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Find Android GA workflows and set matrix
         id: set-matrix
         run: |
