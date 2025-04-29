@@ -34,7 +34,7 @@ jobs:
     needs: setup-brand-app-deployment-workflows
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{ fromJson(needs.find-workflows.outputs.matrix) }}
+      matrix: ${{ fromJson(needs.setup-brand-app-deployment-workflows.outputs.matrix) }}
     steps:
       - name: Dispatch workflow ${{ matrix.workflow }} on ${{ matrix.ref }}
         uses: actions/github-script@v7
