@@ -31,7 +31,7 @@ jobs:
           echo "matrix=$FINAL_MATRIX" >> $GITHUB_OUTPUT
 
   dispatch-workflows:
-    needs: find-workflows
+    needs: setup-brand-app-deployment-workflows
     runs-on: ubuntu-latest
     strategy:
       matrix: ${{ fromJson(needs.find-workflows.outputs.matrix) }}
