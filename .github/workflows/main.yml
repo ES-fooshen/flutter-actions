@@ -28,9 +28,10 @@ jobs:
           done
 
           MATRIX="${MATRIX%,}]"
-          echo "Generated matrix: $MATRIX"
+          FINAL_MATRIX="{\"include\":$MATRIX}"
+          echo "Generated matrix: $FINAL_MATRIX"
 
-          echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
+          echo "matrix=$FINAL_MATRIX" >> $GITHUB_OUTPUT
 
   dispatch-workflows:
     needs: find-workflows
