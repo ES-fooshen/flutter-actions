@@ -9,6 +9,9 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
       - name: Find Android GA workflows and set matrix
         id: set-matrix
         run: |
